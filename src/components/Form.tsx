@@ -5,7 +5,7 @@ import { useQuery } from '../hooks/useQuery';
 import { useUsers } from '../hooks/useUsers';
 
 export const Form = () => {
-    const {query, updateQuery, error} = useQuery();
+    const {query, updateQuery} = useQuery();
     const {users, getUsers, loading} = useUsers(query);
 
     const handleOnSubmit = () => {
