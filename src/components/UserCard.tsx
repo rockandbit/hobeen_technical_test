@@ -2,9 +2,11 @@ import { Card, Paragraph, Title } from "react-native-paper";
 import { User } from "../types";
 import { Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from '@react-navigation/stack';
 
 export const UserCard = ({ user }: { user: User }) => {
-    const navigation = useNavigation();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const navigation = useNavigation<StackNavigationProp<any>>();
 
     const handleNavigate = () => {
         navigation.navigate('UserDetail', {user: user});
