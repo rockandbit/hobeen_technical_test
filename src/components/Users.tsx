@@ -9,11 +9,9 @@ interface UsersProps {
 
 const Users: React.FC<UsersProps> = ({ items }) => {
     if (items.length === 0) return <View><Text>No users</Text></View>;
- 
     return (
         <ScrollView>
             <View style={styles.container}>
-
                 {items.map((user: User) => (
                     <UserCard key={user.id} user={user}/>
                 ))}

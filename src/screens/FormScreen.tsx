@@ -1,11 +1,6 @@
 import React from 'react';
 import { Form } from '../components/Form';
 
-const FormScreen = () => {
-
-    return (
-        <Form />
-    );
-};
+const FormScreen = () => <Form />;
 
 export default FormScreen;

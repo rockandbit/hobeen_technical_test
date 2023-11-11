@@ -6,7 +6,7 @@ export const useUsers = (query: Query) => {
     const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>(``);
-    // error
+
     const getUsers = async () => {
         try {
             setLoading(true);
@@ -20,5 +20,6 @@ export const useUsers = (query: Query) => {
         }
         
     };
-    return {users, getUsers, loading, error}; // return loading, error
+
+    return {users, getUsers, loading, error};
 };

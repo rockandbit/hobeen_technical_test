@@ -7,6 +7,7 @@ import { IUserRepo } from '../types';
 const UserDetailsScreen = ({ route }) => {
     const { user } = route.params;
     const [repos, setRepos] = useState<IUserRepo[]>([]);
+    
     const getRepos = async () => {
         try {
             const newRepos: IUserRepo[] = await fetchRepos(user.login);

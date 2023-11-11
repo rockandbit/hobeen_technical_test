@@ -2,7 +2,7 @@ import { UserRepo } from "./UserRepo";
 import { StyleSheet, Text, View } from "react-native";
 import _ from "lodash";
 import { IUserRepo } from "../types";
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export const UserRepos = ({ repos }: { repos: IUserRepo[] | IUserRepo}) => {
     if(!Array.isArray(repos) || !_.isEmpty(repos)) return (
         <View style={styles.container}>
@@ -19,7 +19,6 @@ export const UserRepos = ({ repos }: { repos: IUserRepo[] | IUserRepo}) => {
         </View>
 
     );  
-   
 };
 const styles = StyleSheet.create({
     container: {
