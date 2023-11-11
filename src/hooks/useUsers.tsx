@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchUsers } from "../fetchUsers";
+import { fetchUsers } from "../backend/fetchUsers";
 import { Query, User } from "../types";
 
 export const useUsers = (query: Query) => {

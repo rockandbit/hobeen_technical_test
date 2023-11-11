@@ -34,3 +34,9 @@ export enum ApiMethods {
     PUT = `PUT`,
     DELETE  =`DELETE`
 }
+
+export interface IUserRepo {
+  name: string,
+  private: boolean,
+  message?: string,
+}

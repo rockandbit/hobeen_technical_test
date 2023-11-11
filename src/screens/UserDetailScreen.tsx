@@ -1,15 +1,31 @@
-import React from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { fetchRepos } from '../backend/fetchRepos';
+import { UserRepos } from '../components/UserRepos';
+import { IUserRepo } from '../types';
 
 const UserDetailsScreen = ({ route }) => {
     const { user } = route.params;
+    const [repos, setRepos] = useState<IUserRepo[]>([]);
+    const getRepos = async () => {
+        try {
+            const newRepos: IUserRepo[] = await fetchRepos(user.login);
+            setRepos(newRepos);
+        } catch (error) {
+            throw new Error (`Error in request of user repositories`);
+        }   
+    };
+
+    useEffect(() => {
+        getRepos();
+    }, []);
 
     return (
         <View style={styles.container}>
             <Text style={styles.detail}>Score: {user.score}</Text>
             <Image source={{ uri: user.avatar_url }} style={styles.avatar} />
             <Text style={styles.title}>{user.login}</Text>
-
+            <UserRepos repos={repos}/>
             <View>
                 <Text>URLs</Text>
                 <Text style={styles.detail}>Followers URL: {user.followers_url}</Text>
