@@ -1,16 +1,20 @@
 import { Card, Paragraph, Title } from "react-native-paper";
 import { User } from "../types";
 import { Dimensions } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export const UserCard = ({ user }: { user: User }) => {
-    // Calcula la cantidad de columnas en función del ancho de la pantalla
+    const navigation = useNavigation();
+
+    const handleNavigate = () => {
+        navigation.navigate('UserDetail', {user: user});
+    };
     const screenWidth = Dimensions.get('window').width;
     const numColumns = screenWidth > 600 ? 3 : 2;
    
-    // Calcula el ancho de cada tarjeta de usuario
     const cardWidth = screenWidth / numColumns;
     return (
-        <Card style={{ margin: 10,  width: cardWidth }}>
+        <Card style={{ margin: 10,  width: cardWidth }} onPress={handleNavigate}>
             <Card.Cover source={{ uri: user.avatar_url }} />
             <Card.Content>
                 <Title>{user.login}</Title>

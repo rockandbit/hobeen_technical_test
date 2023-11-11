@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, ScrollView, Dimensions, StyleSheet } from 'react-native';
-import { UserCard } from './UserCard';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { User } from '../types';
+import { UserCard } from './UserCard';
 
 interface UsersProps {
   items: User[];

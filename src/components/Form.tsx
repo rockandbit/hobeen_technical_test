@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import Users from './../components/Users';
-import { useQuery } from './../hooks/useQuery';
-import { useUsers } from './../hooks/useUsers';
+import Users from './Users';
+import { useQuery } from '../hooks/useQuery';
+import { useUsers } from '../hooks/useUsers';
 
 export const Form = () => {
     const {query, updateQuery, error} = useQuery();
